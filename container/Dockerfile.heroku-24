@@ -55,9 +55,9 @@ ENV PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
 
 # Build liborc from source (not pre-installed on heroku-24)
 ARG ORC_VERSION=0.4.32
-ARG ORC_URL=https://gstreamer.freedesktop.org/src/orc
+ARG ORC_URL=https://deb.debian.org/debian/pool/main/o/orc/orc_0.4.32.orig.tar.xz
 
-RUN wget ${ORC_URL}/orc-${ORC_VERSION}.tar.xz \
+RUN wget -O orc-${ORC_VERSION}.tar.xz ${ORC_URL} \
   && tar xf orc-${ORC_VERSION}.tar.xz \
   && cd orc-${ORC_VERSION} \
   && meson setup builddir \
